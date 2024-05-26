@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/1.css' %}">
+    
+</head>
+    
+{% endblock %}
+
+{% block content %}
+{#    <div class="kab">#}
+    <h2>Это ваш кабинет {{ user.username }}</h2>
+    
+    <h3>Ваша почта {{ user.email }}</h3>
+    <h4>Ваши заказы: </h4>
+    <table>
+        <tr>
+            <th>Адрес доставки</th>
+            <th>Телефон</th>
+            <th>Статус</th>
+            <th>Итог</th>
+        </tr>
+        {% for one in items %}
+            <tr>
+            <td>{{ one.adres }}</td>
+            <td>{{ one.tel }}</td>
+            <td>{{ one.status }}</td>
+            <td>{{ one.total }}</td>
+            <td>
+{#                {% for i in one.items.all %}#}
+{#                    {{ i.name }}#}
+{#                    {% endfor %}#}
+                <a href="{% url 'myzakaz' one.id %}">
+                    Подробнее
+                </a>
+            </td>
+            
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

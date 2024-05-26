@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+<html lang="ru">
+
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>Home</title>
+{#        <link rel="stylesheet" href="{% static 'css/regist2.css'%}"> #}
+{#        <link rel="stylesheet" href="{% static 'css/index.css'%}"> #}
+    {% endblock %}
+</head>
+{% block content %}
+    <div class="regi">
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+    {{ form }}
+        <input type="submit" value="Отправить">
+    </form>
+    </div>
+{% endblock %}

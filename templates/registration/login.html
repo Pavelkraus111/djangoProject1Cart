@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load static %}
+<html lang="ru">
+
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>Home</title>
+{#        <link rel="stylesheet" href="{% static 'css/regist.css'%}"> #}
+{#        <link rel="stylesheet" href="{% static 'css/index.css'%}"> #}
+    {% endblock %}
+</head>
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+    <div class="logi">   
+    {{ form.as_table }}
+    </div>      
+        <a href="{% url 'password_reset' %}">Забыл пароль</a>
+        
+        <input type="submit" value="Войти">
+    </form>
+    <br>
+    <a href="{% url 'registr' %}">Зарегистрировать</a>
+{% endblock %}
